@@ -7,26 +7,14 @@ const appointmentTimeOfDay = (startsAt) => {
 
 export const Appointment = ({ customer }) => <div>{customer.firstName}</div>;
 
-export const AppointmentsDayView = ({ appointments }) => {
+export const AppointmentsDayView = ({ appointments }) => (
   <div id="appointmentsDayView">
     <ol>
       {appointments.map((appointment) => (
         <li key={appointment.startsAt}>
-          <button type="button">
-            {appointmentTimeOfDay(appointment.startsAt)}
-          </button>
+          {appointmentTimeOfDay(appointment.startsAt)}
         </li>
       ))}
     </ol>
-  </div>;
-  return (
-    <div id="appointmentsDayView">
-      ...
-      {appointments.length === 0 ? (
-        <p>There are no appointments scheduled for today.</p>
-      ) : (
-        <Appointment {...appointments[0]} />
-      )}
-    </div>
-  );
-};
+  </div>
+);
